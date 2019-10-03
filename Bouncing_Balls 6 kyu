@@ -4,7 +4,7 @@ class Bouncingball
 {
 public:
     static int bouncingBall(double h, double bounce, double window){
-      if ((h < 0) || (h == 0) || (bounce < 0) || (bounce > 1) || (bounce == 1) || (bounce == 0) || (window > h) || (window == h)){
+      if ((h <= 0) || (bounce <= 0) || (bounce => 1) || (window => h)){
         int refuse = -1;
         return refuse;
       }
