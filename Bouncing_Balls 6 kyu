@@ -1,0 +1,23 @@
+using namespace std;
+
+class Bouncingball
+{
+public:
+    static int bouncingBall(double h, double bounce, double window){
+      if ((h < 0) || (h == 0) || (bounce < 0) || (bounce > 1) || (bounce == 1) || (bounce == 0) || (window > h) || (window == h)){
+        int refuse = -1;
+        return refuse;
+      }
+      int checkBall = 0;
+      while (true){
+        h *= bounce;
+        if (h > window){
+          checkBall += 2;
+        }
+        else{
+          checkBall += 1;
+          return checkBall;
+        }
+      }
+    }
+};
