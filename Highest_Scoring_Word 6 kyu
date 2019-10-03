@@ -1,0 +1,45 @@
+#include <string>
+
+std::string highestScoringWord(const std::string &str)
+{
+    int index;
+    
+    //for result
+  	std::string wordToReturn = "";
+  	int priceWordToReturn = 0;
+	  
+    //for test
+  	std::string potencialWord = "";
+	  int pricePotencialWord = 0;
+	  
+    //find space between words
+  	std::string lookSpace = "";
+	
+	  for (index = 0; index < str.size(); ++index){
+  		  lookSpace = str[index];
+        //fulling testing string by letters
+        if (lookSpace != " "){
+			      potencialWord += str[index];
+			      pricePotencialWord += str[index] - 96;
+        }
+        //When space has founded, test is started
+		    else{
+            //positive test change final word
+		      	if (priceWordToReturn < pricePotencialWord){
+			        	wordToReturn = potencialWord;
+				        priceWordToReturn = pricePotencialWord;
+				    }
+        //clear all after test    
+		  	potencialWord.clear();
+		  	pricePotencialWord = 0;
+		  	}
+        //It has not space after last word, but test must be done.
+        if (index == (str.size() - 1)){
+            if (priceWordToReturn < pricePotencialWord){
+			         	wordToReturn = potencialWord;
+				        priceWordToReturn = pricePotencialWord;
+				    }
+		  	}
+  	}
+    return wordToReturn;
+}
